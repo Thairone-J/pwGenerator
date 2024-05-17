@@ -1,4 +1,3 @@
-let password = '';
 const card = document.getElementById('card');
 const output = document.createElement('div');
 const outputTitle = document.createElement('div');
@@ -15,13 +14,12 @@ document.getElementById('generate-button').addEventListener('click', function ()
 });
 
 function generatePassword(pwsize) {
-  if (pwsize < 12 || pwsize > 142) {
-    alert('Password must be between 12 and 142 characters.');
+  if (pwsize < 12 || pwsize > 42) {
+    alert('Password must be between 12 and 42 characters.');
     return;
   }
 
-  password = '';
-  output.textContent = '';
+  let password = '';
   
   const chars = [
     'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -36,8 +34,8 @@ function generatePassword(pwsize) {
   ];
   
 
-  for (let i = 0; i <= pwsize - 1; i++) {
-    let randomIndex = Math.round(Math.random() * chars.length);
+  for (let i = 0; i < pwsize; i++) {
+    let randomIndex = Math.floor(Math.random() * chars.length);
     password += chars[randomIndex];
   }
 
